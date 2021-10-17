@@ -8,7 +8,7 @@ from sklearn import linear_model, preprocessing
 data = pd.read_csv("car.data")
 print(data.head())
 
-#since we are performing computation, we need some integral data, hence using preprocessing to convert non numeric stuff
+#converting non numeric values
 
 le = preprocessing.LabelEncoder()
 #converting to list
@@ -27,7 +27,7 @@ Y = list(clas)
 
 x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X,Y,test_size = 0.1)
 
-#it's important to use odd integers for k, since there might be an ambiguous case
+# odd integers for k in case of an ambiguous case
 model = KNeighborsClassifier(n_neighbors = 5)
 
 model.fit(x_train, y_train)
